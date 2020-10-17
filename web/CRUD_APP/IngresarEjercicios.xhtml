@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="formEjercicios">
+             <br />
+            <p:messages id="mensaje"  severity="info, fatal" showSummary="true" showDetail="true"/>  
+            
+        <p:fieldset legend="Ingresa El Ejercicio">
+            <h:panelGrid columns="3" id="pgDatos">
+
+            <p:outputLabel for="txtNombre_Ejercicio" value="Nombre Del Ejercicio"/>
+            <p:inputText id="txtNombre_Ejercicio" value="#{EjerciciosJpaController.selected.nombreEjercicio}" required="true" requiredMessage="Campo requerido"/>
+            <p:message for="txtNombre_Ejercicio"/>
+            
+            <p:outputLabel for="txtdescripcion" value="Descripción"/>
+            <p:inputText id="txtdescripcion" value="#{EjerciciosJpaController.selected.descripcion}" required="true" requiredMessage="Campo requerido"/>
+            <p:message for="txtdescripcion"/>
+            
+            <p:outputLabel for="txtcategoriaEjercicio" value="Categoria Del Ejercicio"/> 
+            <p:selectOneMenu id="txtcategoriaEjercicio" value="#{EjerciciosJpaController.selected.categoriaEjercicio}" required="true" requiredMessage="Campo requerido">
+                <f:selectItem itemValue="Acrobacia" itemLabel="Acrobacia"/>
+                <f:selectItem itemValue="Animacion" itemLabel="Animacion"/> 
+                <f:selectItem itemValue="Baile" itemLabel="Baile"/> 
+                <f:selectItem itemValue="E_Introductorios" itemLabel="E_Introductorios"/>
+                <f:selectItem itemValue="Gimnasia" itemLabel="Gimnasia"/> 
+            </p:selectOneMenu>
+            <p:message for="txtcategoriaEjercicio"/>
+             
+            </h:panelGrid>  
+            
+                
+            <p:commandButton icon="ui-icon-check" value="Registrar" actionListener="#{EjerciciosJpaController.registrar()}" update="pgDatos, mensaje" />
+                
+            </p:fieldset>  
+                 
+        </h:form>
+    </h:body>
+</html>
+

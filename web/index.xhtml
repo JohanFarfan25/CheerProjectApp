@@ -1,0 +1,380 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <title></title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="manifest" href="site.webmanifest"/>
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+
+        <!-- CSS here -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css"/>
+        <link rel="stylesheet" href="assets/css/slicknav.css"/>
+        <link rel="stylesheet" href="assets/css/flaticon.css"/>
+        <link rel="stylesheet" href="assets/css/gijgo.css"/>
+      
+        <link rel="stylesheet" href="assets/css/animated-headline.css"/>
+        <link rel="stylesheet" href="assets/css/magnific-popup.css"/>
+        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css"/>
+        <link rel="stylesheet" href="assets/css/themify-icons.css"/>
+        <link rel="stylesheet" href="assets/css/slick.css"/>
+        <link rel="stylesheet" href="assets/css/nice-select.css"/>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+    </h:head>
+    <h:body>
+        <div id="preloader-active">
+            <div class="preloader d-flex align-items-center justify-content-center">
+                <div class="preloader-inner position-relative">
+                    <div class="preloader-circle"></div>
+                    <div class="preloader-img pere-text">
+                        <img src="assets/img/logo/loder.png" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Preloader Start -->
+        <header>
+            <!--? Header Start -->
+            <div class="header-area header-transparent">
+                <div class="main-header header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <a href="index.xhtml"><img src="assets/img/logo/loder.png" width="167" height="145" alt="loder"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-10">
+                                <div class="menu-main d-flex align-items-center justify-content-end">
+                                    <!-- Main-menu -->
+                                    <div class="header-right-btn f-right d-none d-lg-block ml-30">
+                                        <a href="from.html" class="btn header-btn">Contactanos</a>
+                                    </div>
+                                </div>
+                            </div>   
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header End -->
+        </header>
+        <main>
+            <!--? slider Area Start-->
+            <div class="slider-area position-relative">
+                <div class="slider-active">
+                    <!-- Single Slider -->
+                    <div class="single-slider slider-height d-flex align-items-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-3 card" style="position: relative;top: -70px;">
+                                        <div class="card-body login-card-body">
+                                            <center><p class="login-box-msg">Sign in to start your session</p></center>
+
+                                            <h:form class=" form-contact contact_form">
+                                                <p:messages autoUpdate="true" showDetail="true"/>
+                                                <h:panelGrid columns="2">
+                                                    <p:outputLabel for="txtUsuario" value="Usuario"/>
+                                                    <p:inputText id="txtUsuario" value="#{usuarioJpaController.usuario.usuario}" required="true"/>
+
+                                                    <p:outputLabel for="txtClave" value="Clave"/>
+                                                    <p:inputText id="txtClave"  value="#{usuarioJpaController.usuario.clave}" required="true"/>
+
+                                                    <h:column/>
+                                                    <p:commandButton icon="ui-icon-key" value="Iniciar Sesión" action="#{usuarioJpaController.iniciarSesion()}"/>
+                                                </h:panelGrid> 
+                                                <p:separator/>
+                                                <h:link  value="Crear Cuenta" outcome="Club/RegistrarUsuario" style="font-size: 15px;color: black"/>
+                                            </h:form>
+
+
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>          
+                    </div>
+                    <!-- Single Slider -->
+                    <div class="single-slider slider-height d-flex align-items-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-7 col-lg-9 col-md-8 col-sm-9">
+                                    <div class="hero__caption">
+                                        <span data-animation="fadeInLeft" data-delay="0.1s">Gaes-9</span>
+                                        <h1 data-animation="fadeInLeft" data-delay="0.2s">Cheerleadig Sports Informatión Sistems</h1>                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>          
+                    </div>
+                </div>
+                <!-- Video icon -->
+                <div class="video-icon">
+                    <a class="popup-video btn-icon" href="https://youtu.be/nfMMtQjlUtA"><i class="fas fa-play"></i></a>
+                </div>
+            </div>
+            <!-- slider Area End-->
+            <!--? About Area Start -->
+            <section class="about-area section-padding30">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-12">
+                            <!-- about-img -->
+                            <div class="about-img ">
+                                <img src="assets/img/gallery/about.png" width="640" height="640" alt="about"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="about-caption">
+                                <!-- Section Tittle -->
+                                <div class="section-tittle section-tittle3 mb-35">
+                                    <span>US</span>
+                                    <h2>CheerLeading Sports Information Systems</h2>
+                                </div>
+                                <p class="pera-top">This information system optimizes the administrative processes of the Cheerleading club, allowing a better organization, easy management and its visualization, helping to solve the company´s needs of growth, making organizational, productive and technological changes, with the sole purpose of becoming more efficient so it can achieve a better position in the market.</p>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- About-2 Area End -->
+            <!--? Services Area Start -->
+            <section class="services-area pt-100 pb-150 section-bg" data-background="assets/img/gallery/section_bg01.png" style="background:linear-gradient(to left, #eef3f6, #eef3f6);">
+                <!--? Want To work -->
+                <section class="wantToWork-area w-padding">
+                    <div class="container">
+                        <div class="row align-items-end justify-content-between">
+                            <div class="col-lg-6 col-md-10 col-sm-10">
+                                <div class="section-tittle section-tittle2">
+                                    <span>What we're looking for, what we want and what we do</span>
+                                    <h2>MISSION AND VISION</h2>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                <!-- Want To work End -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="single-cat text-center mb-50">
+                                <div class="cat-icon">
+                                    <i class="flaticon-fitness"></i>
+                                </div>
+                                <div class="cat-cap">
+                                    <h5><a href="services.html">MISSION</a></h5>
+                                    <p class="text-justify">Information system with web interface, which optimizes the administrative processes of the Cheerleading club, allowing better organization, easy management and visualization. helping to solve the need for the growth of the company, making organizational, productive and technological changes, with the sole purpose of making it more efficient and can achieve a better position in the market at a general level and compete in the future.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="single-cat text-center mb-50">
+                                <div class="cat-icon">
+                                    <i class="flaticon-healthcare-and-medical"></i>
+                                </div>
+                                <div class="cat-cap">
+                                    <h5><a href="services.html">VISION</a></h5>
+                                    <p class="text-justify">To be recognized as a prestigious information system, at the regional, national and international level, in the area of cheerleading, information systems, technologies associated with the training and excellence of its athletes, managing to reach all cheerleading clubs and sponsoring entities facilitating the management, teaching and implementation of their athletes to improve their sporting position in competitions.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="single-cat text-center mb-50">
+                                <div class="cat-icon">
+                                    <i class="flaticon-clock"></i>
+                                </div>
+                                <div class="cat-cap">
+                                    <h5><a href="services.html">OBJETIVES</a></h5>
+                                    <p class="text-justify">Record and control profiles and pathological history. </p>
+                                    <p class="text-justify">Allow you to design,edit, and assign training plans .</p>
+                                    <p class="text-justify">Facilitate evaluation information in training results.</p> 
+                                    <p class="text-justify">Generate control of club sports materials nationwide.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Services Area End -->
+            <!--? About-2 Area Start -->
+            <section class="about-area2 testimonial-area section-padding30 fix" style="background:linear-gradient(to left, #eef3f6, #eef3f6);">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-4 col-md-11 col-sm-11">
+                            <img src="assets/img//gallery/qutaion.png" alt=""/>
+
+                        </div>
+                        <div class="col-lg-8 col-md-9 col-sm-9">
+                            <div class="about-caption">
+                                <!-- Section Tittle -->
+                                <div class="section-tittle mb-55">
+                                    <span>Gaes-6</span>
+                                    <h2>MEET US</h2>
+                                </div>
+                                <!-- Testimonial Start -->
+                                <div class="h1-testimonial-active">
+                                    <!-- Single Testimonial -->
+                                    <div class="single-testimonial">
+                                        <div class="testimonial-caption">
+                                            <img src="assets/img/gallery/Johan.png" width="300" height="370" alt="Johan"/>
+                                            <br/>
+                                            <p>Excellent teamwork skills, based on meeting goals and objectives, with a tactical, creative and strategic sense.</p>
+                                            <div class="rattiong-caption">
+                                                <span>Johan Farfán<span>Director</span> </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Testimonial -->
+                                    <div class="single-testimonial">
+                                        <div class="testimonial-caption"> 
+                                            <img src="assets/img/gallery/Chaparro.png" width="300" height="370" alt="Chaparro"/>
+                                            <br/>
+                                            <p>Excellent teamwork skills, based on meeting goals and objectives, with a tactical, creative and strategic sense.</p>
+                                            <div class="rattiong-caption">
+                                                <span>David Chaparro<span>Director</span> </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="single-testimonial">
+                                        <div class="testimonial-caption">
+                                            <img src="assets/img/gallery/Cobos.png" width="300" height="400" alt="Cobos"/>
+                                            <br/>
+                                            <p>Excellent teamwork skills, based on meeting goals and objectives, with a tactical, creative and strategic sense.</p>
+                                            <div class="rattiong-caption">
+                                                <span>David Cobos<span>Director</span> </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="single-testimonial">
+                                        <div class="testimonial-caption">
+                                            <img src="assets/img/gallery/Nicolas.png" width="300" height="370" alt="Nicolas"/>
+                                            <br/>
+                                            <p>Excellent teamwork skills, based on meeting goals and objectives, with a tactical, creative and strategic sense.</p>
+                                            <div class="rattiong-caption">
+                                                <span>Nicolas Bernal<span>Director</span> </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Testimonial End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- About-2 Area End -->
+
+        </main>
+        <footer>
+            <!--? Footer Start-->
+            <div class="footer-area section-bg">
+                <div class="container">
+                    <div class="footer-top footer-padding">
+                        <!-- Footer Menu -->
+                        <div class="row d-flex justify-content-between">
+
+                            <div class="col-xl-12 col-lg-4 col-md-5 col-sm-6">
+                                <div class="single-footer-caption mb-50">
+                                    <!-- logo -->
+                                    <div class="footer-logo">
+                                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""/></a>
+                                    </div>
+                                    <div class="footer-tittle">
+                                        <div class="footer-pera">
+                                            <p class="info1">GThe trade war currently ensuing between te US anfd several natxions around thdhe globe, most fiercely with.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Footer Social -->
+                                    <div class="footer-social ">
+                                        <a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fas fa-globe"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+
+                                    <div class="footer-bottom">
+                                        <div class="row d-flex align-items-center">
+                                            <div class="col-lg-12">
+                                                <div class="footer-copy-right text-center">
+                                                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Adsi Sena | 1966781-A <a href="#" target="_blank">Gaes-9</a>
+                                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Footer Bottom -->
+
+                </div>
+            </div>
+            <!-- Footer End-->
+        </footer>
+        <!-- Scroll Up -->
+        <div id="back-top" >
+            <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+        </div>
+
+        <!-- JS here -->
+
+        <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+        <!-- Jquery, Popper, Bootstrap -->
+        <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="./assets/js/popper.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+        <!-- Jquery Mobile Menu -->
+        <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+        <!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="./assets/js/owl.carousel.min.js"></script>
+        <script src="./assets/js/slick.min.js"></script>
+        <!-- One Page, Animated-HeadLin -->
+        <script src="./assets/js/wow.min.js"></script>
+        <script src="./assets/js/animated.headline.js"></script>
+        <script src="./assets/js/jquery.magnific-popup.js"></script>
+
+        <!-- Date Picker -->
+        <script src="./assets/js/gijgo.min.js"></script>
+        <!-- Nice-select, sticky -->
+        <script src="./assets/js/jquery.nice-select.min.js"></script>
+        <script src="./assets/js/jquery.sticky.js"></script>
+
+        <!-- counter , waypoint,Hover Direction -->
+        <script src="./assets/js/jquery.counterup.min.js"></script>
+        <script src="./assets/js/waypoints.min.js"></script>
+        <script src="./assets/js/jquery.countdown.min.js"></script>
+        <script src="./assets/js/hover-direction-snake.min.js"></script>
+
+        <!-- contact js -->
+        <script src="./assets/js/contact.js"></script>
+        <script src="./assets/js/jquery.form.js"></script>
+        <script src="./assets/js/jquery.validate.min.js"></script>
+        <script src="./assets/js/mail-script.js"></script>
+        <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+
+        <!-- Jquery Plugins, main Jquery -->	
+        <script src="./assets/js/plugins.js"></script>
+        <script src="./assets/js/main.js"></script>
+    </h:body>
+</html>
+

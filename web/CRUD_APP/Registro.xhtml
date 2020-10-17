@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form class="col-md-6" id="formEjercicios">
+            <br />
+            <p:messages id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true"/>  
+
+            <p:fieldset legend="Datos Personales">
+                <h:panelGrid columns="3" id="pgDatos">
+                    <p:outputLabel for="txtnombre" value="Nombre"/>
+                    <p:inputText id="txtnombre" value="#{usuarioJpaController.persona.nombre}"  required="true" requiredMessage="Campo requerido"/>
+                    <p:message for="txtnombre"/>
+
+                    <p:outputLabel for="txtapellidos" value="Apellidos"/>
+                    <p:inputText id="txtapellidos" value="#{usuarioJpaController.persona.apellidos}" required="true" requiredMessage="Campo requerido"/>
+                    <p:message for="txtapellidos"/>
+
+                    <p:outputLabel for="rdbSexo" value="Sexo"/> 
+                    <p:selectOneMenu id="rdbSexo" value="#{usuarioJpaController.persona.sexo}" required="true" requiredMessage="Campo requerido">
+                        <f:selectItem itemLabel="---" itemValue="#{null}" noSelectionOption="true" />
+                        <f:selectItem itemValue="M" itemLabel="Masculino"/>
+                        <f:selectItem itemValue="F" itemLabel="Femenino"/>  
+                    </p:selectOneMenu>
+                    <p:message for="txtusuario"/>
+
+                    <p:outputLabel for="rdbTipo_Documento" value="Tipo_Documento"/> 
+                    <p:selectOneMenu class="col-md-12" id="rdbTipo_Documento" value="#{usuarioJpaController.persona.tipoDocumento}" required="true" requiredMessage="Campo requerido">
+                        <f:selectItem itemLabel="---" itemValue="#{null}" noSelectionOption="true" />
+                        <f:selectItem itemValue="CC" itemLabel="Cedula De Ciudadania"/>
+                        <f:selectItem itemValue="TI" itemLabel="Tarjeta De Identidad"/>
+                        <f:selectItem itemValue="CE" itemLabel="Cedula De Extrangeria"/> 
+                    </p:selectOneMenu>
+                    <p:message for="txtusuario"/>
+
+                    <p:outputLabel for="txtDocumento" value="Documento"/>
+                    <p:inputText id="txtDocumento" value="#{usuarioJpaController.persona.documento}" required="true" requiredMessage="Campo requerido"/>
+                    <p:message for="txtDocumento"/>
+
+                    <p:outputLabel for="txtedad" value="Edad"/>
+                    <p:inputText id="txtedad" value="#{usuarioJpaController.persona.edad}" required="true" requiredMessage="Campo requerido"/>
+                    <p:message for="txtedad"/>
+
+                    <p:outputLabel for="txtfactorDeRiezgo" value="Factor De Riesgo"/>
+                    <p:inputTextarea class="col-md-12" id="txtfactorDeRiezgo" value="#{usuarioJpaController.persona.factorDeRiezgo}"/>
+                    <p:message for="txtfactorDeRiezgo"/>
+
+                    <p:outputLabel for="txtfechaNacimiento" value="Fecha de Nacimiento"/>
+                    <p:calendar id="txtfechaNacimiento" value="#{usuarioJpaController.persona.fechaNacimiento}" required="true" requiredMessage="Campo requerido"/>
+                    <p:message for="txtfechaNacimiento"/>
+                </h:panelGrid>  
+
+            </p:fieldset>
+
+            <p:fieldset legend="Datos de la Cuenta">
+                <h:panelGrid columns="3" id="pgCuenta">
+                    <p:outputLabel for="cboTipo" value="Tipo de Cuenta"/>
+                    <p:selectOneMenu class="col-md-12" id="cboTipo" value="#{usuarioJpaController.usuario.tipo}" required="true" requiredMessage="Campo requerido">
+                        <f:selectItem itemLabel="---" itemValue="#{null}" noSelectionOption="true" />
+                        <f:selectItem itemValue="Administrador" itemLabel="Administrador" />
+                        <f:selectItem itemValue="Entrenador" itemLabel="Entrenador" />
+                        <f:selectItem itemValue="Deportista" itemLabel="Deportista" />
+                    </p:selectOneMenu>
+                    <p:message for="txtusuario"/>
+
+                    <p:outputLabel for="txtusuario" value="usuario"/>
+                    <p:inputText id="txtusuario" value="#{usuarioJpaController.usuario.usuario}" required="true" requiredMessage="Campo requerido"/>
+                    <p:message for="txtusuario"/>
+
+                    <p:outputLabel for="clave1" value="Clave"/>
+                    <p:password id="clave1" value="#{usuarioJpaController.usuario.clave}" validatorMessage="Las claves no coinciden"  
+                                match="clave2" feedback="true" promptLabel="Ingrese Una Clave" required="true" requiredMessage="Campo requerido"/>
+                    <p:message for="clave1"/>     
+
+                    <p:outputLabel for="clave2" value="Repetir Clave" />
+                    <p:password id="clave2" required="true" requiredMessage="Campo requerido"/>
+                    <p:message for="clave2" /> 
+                </h:panelGrid>
+                <hr/>
+                <p:commandButton icon="ui-icon-check" value="Registrar" update="pgDatos, pgCuenta, mensaje" actionListener="#{usuarioJpaController.registrar()}"/>
+
+            </p:fieldset>  
+        </h:form>
+    </h:body>
+</html>
+

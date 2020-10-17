@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="primePU" transaction-type="JTA">
+    <jta-data-source>jdbc/prime4</jta-data-source>
+    <class>com.club.model.Ejercicios</class>
+    <class>com.club.model.InventarioMateriales</class>
+    <class>com.club.model.ItemsEvaluacion</class>
+    <class>com.club.model.Nivel</class>
+    <class>com.club.model.Persona</class>
+    <class>com.club.model.PlanDeEntrenamiento</class>
+    <class>com.club.model.Prestamo</class>
+    <class>com.club.model.Semana1</class>
+    <class>com.club.model.Semana2</class>
+    <class>com.club.model.Semana3</class>
+    <class>com.club.model.Semana4</class>
+    <class>com.club.model.Usuario</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties/>
+  </persistence-unit>
+</persistence>

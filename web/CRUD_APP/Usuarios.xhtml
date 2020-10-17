@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Usuarios</title>
+    </h:head>
+    <h:body>
+
+        <p:commandButton  style="margin-left: 5%" value="Regresar"  action="PrestamoDeMateriales.xhtml"/>
+
+        <br />
+        <hr/>
+
+        <h:form id="form" >
+            <p:fieldset legend="Usuarios">
+
+                <p:dataTable id="tbl" var="perso" value="#{personaJpaController.lista}"
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                             paginator="true" rows="10" style="margin-bottom:20px">
+                    
+
+                    <p:column filterBy="#{perso.tipoDocumento}" headerText="tipoDocumento"   filterMatchMode="contains">
+                        <f:facet name="header">
+                            <h:outputText value="Tipo Doc"/>
+                        </f:facet>
+                        <h:outputText value="#{perso.tipoDocumento}" />
+                    </p:column >
+
+
+                    <p:column filterBy="#{perso.documento}" headerText="documento"   filterMatchMode="contains">
+                        <f:facet name="header">
+                            <h:outputText value="Documento"/>
+                        </f:facet>
+                        <h:outputText value="#{perso.documento}" />
+                    </p:column >
+
+                    <p:column class="id" filterBy="#{perso.nombre} " headerText="nombre"   filterMatchMode="contains">
+                        <f:facet name="header">
+                            <h:outputText value="Nombre" />
+                        </f:facet>
+                        <h:outputText value="#{perso.nombre}" />
+                    </p:column>
+
+                    <p:column filterBy="#{perso.apellidos}" headerText="apellidos"   filterMatchMode="contains"> 
+                        <f:facet name="header">
+                            <h:outputText value="Apellidos"/>
+                        </f:facet>
+                        <h:outputText value="#{perso.apellidos}" />
+                    </p:column>
+
+
+                    <p:column filterBy="#{perso.sexo}" headerText="apellidos"   filterMatchMode="contains">
+                        <f:facet name="header">
+                            <h:outputText value="Genero"/>
+                        </f:facet>
+                        <h:outputText value="#{perso.sexo}" />
+                    </p:column >
+
+
+                    <p:column filterBy="#{perso.edad}" headerText="edad"   filterMatchMode="contains">
+                        <f:facet name="header">
+                            <h:outputText value="Edad"/>
+                        </f:facet>
+                        <h:outputText value="#{perso.edad}" />
+                    </p:column >
+
+                    <p:column filterBy="#{perso.factorDeRiezgo}" headerText="factorDeRiezgo"   filterMatchMode="contains">
+                        <f:facet name="header">
+                            <h:outputText value="Factor De Riesgo"/>
+                        </f:facet>
+                        <h:outputText value="#{perso.factorDeRiezgo}" />
+                    </p:column >
+
+                    <p:column  headerText="Acciones"  exportable="false" >
+                        <p:commandButton  style="margin-left: 5%"  icon="ui-icon-pencil" title="Modificar"  actionListener="#{personaJpaController.leer(perso)}" oncomplete="PF('wdialogo2').show();" update=":dialogo2"/>
+
+                        <p:commandButton  style="margin-left: 5%"  icon="search" title="Ver"  actionListener="#{personaJpaController.leer(perso)}" oncomplete="PF('wdialogo3').show();" update=":dialogo3"/>
+
+                    </p:column> 
+
+                </p:dataTable>
+            </p:fieldset>
+        </h:form>
+
+
+        <p:dialog   class="col-md-5" header="Editar Usuario" widgetVar="wdialogo2" id="dialogo2"  resizable="true" width="800">
+            <h:form id="formulario">
+
+                <h:panelGrid  columns="2">
+
+                    <p:outputLabel value="Tipo De Doc"/>
+                    <h:inputText value="#{personaJpaController.persona.tipoDocumento}" />
+
+                    <p:outputLabel value="Documento"/>
+                    <h:inputText value="#{personaJpaController.persona.documento}" />
+
+                    <p:outputLabel value="Nombre"/>
+                    <h:inputText value="#{personaJpaController.persona.nombre}" />
+
+                    <p:outputLabel value="Apellidos"/>   
+                    <h:inputText value="#{personaJpaController.persona.apellidos}" />
+
+                    <p:outputLabel value="Genero"/>   
+                    <h:inputText value="#{personaJpaController.persona.sexo}" />
+
+                    <p:outputLabel value="Edad"/>
+                    <h:inputText value="#{personaJpaController.persona.edad}" />
+
+                    <p:outputLabel value="Factor De Riesgo"/>
+                    <h:inputTextarea class="col-md-12" value="#{personaJpaController.persona.factorDeRiezgo}" />
+
+                    <p:outputLabel for="txtfechaNacimiento" value="Fecha de Nacimiento"/>
+                    <p:calendar id="txtfechaNacimiento" value="#{usuarioJpaController.persona.fechaNacimiento}" required="true" requiredMessage="Campo requerido"/>
+                    <p:message for="txtfechaNacimiento"/>
+
+                </h:panelGrid>
+
+                <hr/>
+
+                <p:commandButton  style="margin-left: 5%" value="Guardar" title="Guardar"  actionListener="#{personaJpaController.modificar()}" oncomplete="PF('wdialogo2').hide();" update=":form:tbl"/>
+
+                <p:commandButton  style="margin-left: 5%" value="Eliminar" title="Eliminar"  actionListener="#{personaJpaController.eliminar()}" oncomplete="PF('wdialogo2').hide();" update=":form:tbl"/>
+
+
+
+            </h:form>
+
+        </p:dialog>
+
+
+
+        <p:dialog   class="col-md-5" header="Editar Usuario" widgetVar="wdialogo3" id="dialogo3"  resizable="true" width="800">
+            <h:form id="formulario3">
+
+                <h:panelGrid  columns="2">
+
+                    <p:outputLabel value="Tipo De Doc"/>
+                    <h:outputText value="#{personaJpaController.persona.tipoDocumento}" />
+
+                    <p:outputLabel value="Documento"/>
+                    <h:outputText value="#{personaJpaController.persona.documento}" />
+
+                    <p:outputLabel value="Nombre"/>
+                    <h:outputText value="#{personaJpaController.persona.nombre}" />
+
+                    <p:outputLabel value="Apellidos"/>   
+                    <h:outputText value="#{personaJpaController.persona.apellidos}" />
+
+                    <p:outputLabel value="Genero"/>   
+                    <h:outputText value="#{personaJpaController.persona.sexo}" />
+
+                    <p:outputLabel value="Edad"/>
+                    <h:outputText value="#{personaJpaController.persona.edad}" />
+
+                    <p:outputLabel value="Factor De Riesgo"/>
+                    <h:outputText class="col-md-12" value="#{personaJpaController.persona.factorDeRiezgo}" />
+
+                    <p:outputLabel value="Fecha De Nacimiento"/>
+                    <h:outputText value="#{personaJpaController.persona.fechaNacimiento}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </h:outputText>
+
+                </h:panelGrid>
+                <hr/>
+
+            </h:form>
+
+        </p:dialog>
+
+
+
+
+    </h:body>
+</html>
+
